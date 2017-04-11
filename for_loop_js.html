@@ -13,9 +13,9 @@
 
         console.log("=========================");
 
+        var rand = Math.floor(Math.random() * 10);
 
-        for (i = 1; i <= 10; i++) {
-            var rand = Math.floor(Math.random() * 10);
+        for (var i = 1; i <= 10; i++) {
             console.log(i + " * " + rand + " = " + (i * rand));
 
         }
@@ -27,9 +27,9 @@
 
 
 //        Problem 2
-        var rand2 = Math.floor(Math.random() * 200) + 20;
+//        var rand2 = Math.floor(Math.random() * 200) + 20;
 
-        for (i = 1; i <=10; ++i) {
+        for (var i = 1; i <=10; ++i) {
             var rand2 = Math.floor(Math.random() * 200) + 20;
 
             if (rand2 % 2 === 0) {
@@ -59,14 +59,14 @@
         console.log("=========================");
 
 
-        console.log("<ul>");
-        for (i = 1; i <= 5; i++) {
+        var list = "<ul>\n";
+        for (var i = 1; i <= 5; i++) {
             var rand3 = Math.floor(Math.random() * 10) + 20;
-            console.log("    <li> " + rand3 + " </li>");
+            list +="   \t <li> Random" + rand3 + " </li>\n";
         }
-        console.log("</ul>");
+        list += "</ul>";
 
-
+        console.log(list);
 
     </script>
 </body>
