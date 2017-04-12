@@ -6,16 +6,28 @@
 </head>
     <body>
 
-
         <script>
             //Array with 3 elements
-            var gm = ["Strike","Score", "You Can try again." ];
+            (function () {
 
-            //function that randomly decides if there is a strike or not
-            function ranD (n) {
-                var rand = Math.floor((Math.random() * (3 - 1)) + 1);
-            }
 
+                "use strict";
+
+
+                var rand = [];
+                //function that randomly decides if there is a strike or not
+                function ranD () {
+                    for (var i = 0; i < 3; i++) {
+                        var rand = [];
+                        rand.push( Math.floor(Math.random() * (4 - 1) + 1));
+                        console.log(i);
+                        return rand;
+                    }
+//
+                }
+                console.log(ranD());
+
+            })();
         </script>
     </body>
 </html>
