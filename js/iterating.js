@@ -8,12 +8,17 @@
     console.log(names.length);
 
     // TODO: Create log statements that will print each of the names array elements individually.
-    console.log("For Loop: \n");
-    for (var i = 0; i <= names.length - 1; i++) {
+    console.log("For Loop:");
+    console.log(" ");
+    for (var i = 0; i < names.length; i++) {
         console.log(names[i]);
 
     }
-    console.log("ForEach Loop: \n");
+    console.log(" ");
+    console.log("ForEach Loop:");
+    console.log(" ");
+
+
     //Or we can use a for each loop :
     names.forEach(function (element) {
         console.log(element);
