@@ -104,4 +104,4 @@ function dateForm (d) {
     return res;
 }
 
-console.log(dateForm('4/12/17'));
+console.log(dateForm('8/10/17'));

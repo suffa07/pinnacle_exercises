@@ -57,10 +57,11 @@
 //                }
 //                count++;
 //            }
-
+            var countX = 0;
+            var countO = 0;
             function XO(str) {
-                var countX = 0;
-                var countO = 0;
+//                var countX = 0;
+//                var countO = 0;
                 var indx = str.split("");
                 for (var x = 0; x <= str.length; x++) {
                     if (indx[x] === "x" || indx[x] === "X") {
@@ -73,18 +74,22 @@
                         console.log("True");
                     }
 
-                    else if ((indx[x] !== "x" || indx[x] !== "X") && (indx[x] !== "o" || indx[x] !== "O")) {
+//                    else if ((indx[x] !== "x" || indx[x] !== "X") && (indx[x] !== "o" || indx[x] !== "O")) {
+                    else if (countX !== countO ) {
                         console.log("XO: False");
 
                     }
-                    else {
+                    else if (indx[x] !== "x" || indx[x] !== "X") && (indx[x] !== "o" || indx[x] !== "O") {
+
                         console.log("ALL other: False");
                     }
-                    console.log("X: " + countX);
-                    console.log("O: " + countO);
+//                    console.log("X: " + countX);
+//                    console.log("O: " + countO);
                 }
             }
-            XO("xxxooo");
+            XO("xxXxooOo");
+            console.log("X: " + countX);
+            console.log("O: " + countO);
         </script>
     </body>
 </html>
