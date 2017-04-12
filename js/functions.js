@@ -49,6 +49,7 @@ console.log("     Problem 2         ");
 console.log("=======================");
 function isOdd(num) {
      var result = (num % 2 == 1) ? (num + " is an odd number") : (num + " is not an odd number.");
+
      console.log(result);
 
 }isOdd(46);
@@ -65,3 +66,42 @@ console.log("     Problem 3         ");
 console.log("=======================");
 
 isOdd(random);
+
+
+console.log("=======================");
+console.log("     Bonus 1          ");
+console.log("======================");
+
+
+
+var min = 5;
+var max = 10;
+function ranMm(min, max) {
+    var rand = Math.floor((Math.random() * (max - min)) + min);
+    return rand;
+}
+// var rand = Math.floor((Math.random()*50)+1);
+console.log("Random Number between " + min + " - " + max + " : " + ranMm(min, max));
+
+
+console.log("=======================");
+console.log("     Bonus 2          ");
+console.log("======================");
+
+
+function dateForm (d) {
+    var date = d.split("/");
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var correctMonth;
+    var res;
+    for (var i = 0; i <= 12; i++) {
+        if (parseInt(date[0]) === (i + 1)) {
+            correctMonth = months[i];
+            res = correctMonth + ' ' + date[1] + ' ' + '20' + date[2];
+        }
+
+    }
+    return res;
+}
+
+console.log(dateForm('4/12/17'));
