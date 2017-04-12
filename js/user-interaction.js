@@ -22,3 +22,24 @@ prmPt();
 
 // TODO: Ask the user if they like pizza.
 //       Based on their answer show a creative alert message.
+
+
+
+function fibSeq(n) {
+
+    if (i === 0) {
+        return 0;
+    }
+    else if (i === 1) {
+        return 1;
+    }
+    return fibSeq(i - 2) + fibSeq(i - 1);
+
+}
+
+for (var i = 0; i <= 100; i++) {
+
+    console.log(fibSeq(i));
+}
+
+
