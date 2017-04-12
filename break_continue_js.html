@@ -63,7 +63,7 @@
 //                var countX = 0;
 //                var countO = 0;
                 var indx = str.split("");
-                for (var x = 0; x <= str.length; x++) {
+                for (var x = 0; x <= str.length - 1; x++) {
                     if (indx[x] === "x" || indx[x] === "X") {
                         countX += 1;
                     } else if (indx[x] === "o" || indx[x] === "O") {
@@ -75,7 +75,7 @@
                     }
 
 //                    else if ((indx[x] !== "x" || indx[x] !== "X") && (indx[x] !== "o" || indx[x] !== "O")) {
-                    else if (countX !== countO ) {
+                    if (countX !== countO ) {
                         console.log("XO: False");
 
                     }
