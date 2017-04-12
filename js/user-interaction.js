@@ -37,9 +37,11 @@ function fibSeq(n) {
 
 }
 
+var count = 0;
 for (var i = 0; i <= 100; i++) {
 
-    console.log(fibSeq(i));
+    count = console.log(fibSeq(i));
+
 }
 
-
+console.log(fibSeq(count));
