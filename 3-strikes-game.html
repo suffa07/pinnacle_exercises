@@ -7,25 +7,35 @@
     <body>
 
         <script>
-            //Array with 3 elements
+
             (function () {
 
 
                 "use strict";
-
-
-                var rand = [];
-                //function that randomly decides if there is a strike or not
-                function ranD () {
+                // randGen () decides if strike or not by creating a random array of 3 elements
+                function randGen() {
+                    var rand = [];
                     for (var i = 0; i < 3; i++) {
-                        var rand = [];
-                        rand.push( Math.floor(Math.random() * (4 - 1) + 1));
-                        console.log(i);
-                        return rand;
+                        rand[i] = Math.floor(Math.random() * (4 - 1) + 1);
                     }
-//
+                    console.log(rand);
                 }
-                console.log(ranD());
+
+                function chckStrike (n) {
+
+
+                }
+
+                //function that randomly decides if there is a strike or not
+//                function ranD () {
+//                    for (var i = 0; i < 3; i++) {
+//                        rand[i] =  Math.floor(Math.random() * (4 - 1) + 1);
+//
+//                        return rand;
+//                    }
+//                }
+//                console.log(ranD());
+                console.log(randGen());
 
             })();
         </script>
