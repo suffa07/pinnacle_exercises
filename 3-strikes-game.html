@@ -8,36 +8,50 @@
 
         <script>
 
-            (function () {
 
 
-                "use strict";
-                // randGen () decides if strike or not by creating a random array of 3 elements
-                function randGen() {
-                    var rand = [];
-                    for (var i = 0; i < 3; i++) {
-                        rand[i] = Math.floor(Math.random() * (4 - 1) + 1);
-                    }
-                    console.log(rand);
-                }
 
-                function chckStrike (n) {
-
-
-                }
-
-                //function that randomly decides if there is a strike or not
-//                function ranD () {
+            "use strict";
+            // randGen () decides if strike or not by creating a random array of 3 elements
+            function randGen() {
+                var rand = Math.floor(Math.random() * (2 - 0) + 0);
+//                    var rand = [];
 //                    for (var i = 0; i < 3; i++) {
-//                        rand[i] =  Math.floor(Math.random() * (4 - 1) + 1);
-//
-//                        return rand;
+//                        rand[i] = Math.floor(Math.random() * (4 - 1) + 1);
 //                    }
-//                }
-//                console.log(ranD());
-                console.log(randGen());
+                return rand;
+            }
 
-            })();
+            function chckStrike () {
+                var stack = ["Score", "Strike"];
+                var result = [];
+                    do {
+                        result.push(stack[randGen()]);
+                    } while(result.length < 3);
+                    for (var i = 0; i < result.length; ++i) {
+                        console.log(result[0] + "\n");
+                        console.log(result[1] + "\n");
+                        console.log(result[2] + "\n");
+                        if (result[i] == "Score" && result[i + 1] === "Score" && result[i + 2] == "Score") {
+                            return "\nYou win!";
+                        }
+                        else if (result[i] == "Strike" && result[i + 1] === "Strike" && result[i + 2] == "Strike") {
+                            return "\nYou lose! \nYou can try again.";
+
+                        }
+                        else {
+                            return "\nYou can try again.";
+
+                        }
+                    }
+
+//                return stack;
+            }
+
+
+        console.log(chckStrike());
+
+
         </script>
     </body>
 </html>
