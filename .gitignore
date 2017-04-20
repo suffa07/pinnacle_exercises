@@ -1,2 +1,3 @@
 .idea
 *.iml
+!/dom-query-js.html

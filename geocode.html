@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Maps</title>
+    <style type="text/css">
+
+        body {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        #map-canvas {
+            width: 1000px;
+            height: 600px;
+            position: absolute;
+        }
+
+        #lat, #long, #zoom {
+            margin-left: 5px;
+
+        }
+
+        div#controls {
+            padding-top: 100px;
+            width: 1000px;
+            height: 40px;
+            margin-top: 505px;
+            position: absolute;
+
+        }
+
+        label {
+            margin-left: 5px;
+        }
+
+        #map-canvas {
+            /*margin: 0 auto;*/
+        }
+
+        buttons  {
+            /*width: 5px;*/
+            /*height: 5px;*/
+            /*border: 1px solid black;*/
+            font-size: large;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Google Maps</h1>
+    <div id="map-canvas"></div>
+
+
+    <div id="controls">
+        <label for="lat">Latitude</label>
+        <input type="text" id="lat" value="">
+
+        <label for="long">Longitude</label>
+        <input type="text" id="long" value="">
+
+        <label for="zoom">zoom</label>
+        <input type="number" hidden="true" id="zoom" step="1" value="10">
+
+        <button  value="1" id="inc">+</button>
+        <button  value="1" id="dec">-</button>
+
+
+</div>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxIPbNd4ljI6NdSyP5ugk4XoKDzw2VEZM">
+
+
+</script>
+  <script>
+      (function () {
+
+      "use strict";
+
+      var mapDiv = document.getElementById("map-canvas");
+      var lat;
+      document.getElementById("lat").value;
+      var long;
+      document.getElementById("long").value;
+
+      var Lat = parseFloat(lat);
+      var Long = parseFloat(long);
+
+
+      var zoom = document.getElementById("zoom").value;
+      var mapOptions = {};
+
+
+      var btn1 = document.getElementById("inc");
+      var btn2 = document.getElementById("dec");
+      var l_code = {lat: 29.426791, lng: -98.489602};
+      var infowindow = new google.maps.InfoWindow({
+          content: "Finally, I'm here!"
+      });
+
+
+
+      // Increment button handler function and event register
+      var in_btn = function (event) {
+          document.getElementById("zoom").stepUp(1);
+          mapOptions.zoom = zoomNum();
+
+          mapOptions.disableDefaultUI = true;
+          mapOptions.center = {lat: Lat, lng: Long};
+
+          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+          map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+
+          var marker = new google.maps.Marker({
+              position:l_code,
+              map: map
+          });
+
+          infowindow.open(map, marker);
+
+          var address = "7838 Huebner Rd, San Antonio, Texas, 78240";
+          var geocoder = new google.maps.Geocoder();
+
+          geocoder.geocode({"address": address}, function(results, status) {
+
+              if (status == google.maps.GeocoderStatus.OK) {
+
+                  map.setCenter(results[0].geometry.location);
+              } else {
+
+                  alert("Geocoding was not successful - STATUS: " + status);
+              }
+
+
+
+          });
+      }
+//       Increment button listener
+      document.getElementById('inc').addEventListener('click', in_btn);
+
+
+
+      // Decrement button handler
+      var out_btn = function (event){
+          document.getElementById('zoom').stepDown(1);
+
+
+          mapOptions.zoom = zoomNum();
+
+          mapOptions.disableDefaultUI = true;
+          mapOptions.center = {lat: Lat, lng: Long};
+
+          var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+          map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+
+          var marker = new google.maps.Marker({
+              position:l_code,
+              map: map
+          });
+
+          infowindow.open(map, marker);
+
+          var address = "7838 Huebner Rd, San Antonio, Texas, 78240";
+          var geocoder = new google.maps.Geocoder();
+
+          geocoder.geocode({"address": address}, function(results, status) {
+
+              if (status == google.maps.GeocoderStatus.OK) {
+
+                  map.setCenter(results[0].geometry.location);
+              } else {
+
+                  alert("Geocoding was not successful - STATUS: " + status);
+              }
+
+
+
+          });
+
+      }
+//       Decrement button Listener
+      document.getElementById('dec').addEventListener('click', out_btn);
+
+
+
+      function zoomNum() {
+          zoom = document.getElementById("zoom").value;
+          var zInt = parseInt(zoom);
+
+          return zInt;
+      }
+
+
+      mapOptions.zoom = zoomNum();
+      mapOptions.disableDefaultUI = true;
+      mapOptions.center = {lat: 29.426791, lng: -98.489602};
+
+      console.log(mapOptions);
+
+
+
+      var mapOptions = {
+          zoom: 10,
+          disableDefaultUI: true,
+
+          center: {
+              lat: 29.426791,
+              lng: -98.489602
+
+          },
+
+
+      };
+
+
+
+
+
+     //Map Render
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+
+    var marker = new google.maps.Marker({
+        position:l_code,
+        map: map
+    });
+
+    infowindow.open(map, marker);
+
+    var address = "7838 Huebner Rd, San Antonio, Texas, 78240";
+    var geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({"address": address}, function(results, status) {
+
+        if (status == google.maps.GeocoderStatus.OK) {
+
+            map.setCenter(results[0].geometry.location);
+        } else {
+
+            alert("Geocoding was not successful - STATUS: " + status);
+        }
+
+
+
+        });
+
+
+
+    })();
+</script>
+
+</body>
+</html>
