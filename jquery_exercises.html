@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jquery Exercises</title>
+</head>
+    <body>
+
+    <h1 id="first-hello">Hi</h1>
+
+    <ul class="u-list">
+        <li class="names">Del</li>
+        <li class="names">Luis</li>
+        <li class="names">Fer</li>
+    </ul>
+
+    <h1 id="second-hello" >
+        Hello Again
+    </h1>
+
+
+
+        <script
+                src="http://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+
+
+        <script>
+            $(document).ready(function () {
+
+                console.log("ready");
+
+                $('li').css('font-size', '20px');
+
+            });
+        </script>
+    </body>
+</html>
