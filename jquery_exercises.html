@@ -21,6 +21,7 @@
     <h1 id="second-hello" >
         Hello Again
     </h1>
+    <button id="change-bg">Click</button>
 
 
 
@@ -35,11 +36,14 @@
 
                 console.log("ready");
 
-                $('li').css('font-size', '20px');
-                $('h1, p, li').css('background-color', 'yellow');
-                $(alert($('h1').text()));
-                $('div').css('color', 'blue');
-                $('.div').css('font-size', '30px');
+//                $('li').css('font-size', '20px');
+//                $('h1, p, li').css('background-color', 'yellow');
+//                $(alert($('h1').text()));
+//                $('div').css('color', 'blue');
+//                $('.div').css('font-size', '30px');
+                $('#change-bg').click(function () {
+                    $('h1').css('background-color', 'yellow');
+                });
 
             });
         </script>
