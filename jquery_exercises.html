@@ -22,6 +22,7 @@
         Hello Again
     </h1>
     <button id="change-bg">Click</button>
+    <button id="change-sz">Double Click</button>
 
 
 
@@ -43,6 +44,10 @@
 //                $('.div').css('font-size', '30px');
                 $('#change-bg').click(function () {
                     $('h1').css('background-color', 'yellow');
+                });
+
+                $('#change-sz').dblclick(function(){
+                    $('p').css('font-size', '18px');
                 });
 
             });
