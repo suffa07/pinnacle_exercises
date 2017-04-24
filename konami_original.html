@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/konami.css">
+</head>
+<body>
+
+
+    <h1>Konami</h1>
+
+<script
+        src="http://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<!--<script src="js/state-machine.js" ></script>
+<script src="js/bootstrap.min.js"></script>-->
+<script>
+
+    $(document).ready(function() {
+        "use strict";
+
+
+
+
+
+        /* Solved Konami problem with if statements */
+
+        $(document).keyup(function(e) {
+         if (e.keyCode == "38") {
+         keyCount++;
+         }
+         if (keyCount == 2) {
+         keyCount = 0;
+         }
+         if (e.keyCode == "40") {
+         keyCount++;
+         if (keyCount == 2) {
+         keyCount = 0;
+         }
+         }if (e.keyCode == "37") {
+         keyCount++;
+         }
+         if (keyCount == 1) {
+         keyCount = 0;
+         }
+         if (e.keyCode == "39") {
+         keyCount++;
+         if (keyCount == 1) {
+         keyCount = 0;
+         }
+         }if (e.keyCode == "37") {
+         keyCount++;
+         }
+         if (keyCount == 1) {
+         keyCount = 0;
+         }
+         if (e.keyCode == "39") {
+         keyCount++;
+         if (keyCount == 1) {
+         keyCount = 0;
+         }
+         }if (e.keyCode == "66") {
+         keyCount++;
+         }
+         if (keyCount == 1) {
+         keyCount = 0;
+         }
+         if (e.keyCode == "65") {
+         keyCount++;
+         if (keyCount == 1) {
+         keyCount = 0;
+         }
+         }if (e.keyCode == "13") {
+         alert('You have added 30 lives!');
+         }
+
+
+         });
+
+    });
+</script>
+</body>
+</html>

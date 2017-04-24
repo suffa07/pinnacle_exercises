@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Continuous Links</title>
+    <style>
+        body {
+            position: relative;
+            background-color: lightgrey;
+        }
+        div {
+            background-color: lightgrey;
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            border: 1px solid darkgrey;
+            opacity: 0.2;
+            margin-left: 150px;
+            border-top: 45px solid black;
+            float: left;
+            margin-top: 30px;
+
+        }
+        p {
+            position: absolute;
+            margin-top: 100px;
+        }
+
+        ul {
+            position: absolute;
+            margin-top: 300px;
+        }
+        h1 {
+            position: absolute;
+        }
+        #close {
+            position: absolute;
+            margin-top: 200px;
+            margin-left: 250px
+        }
+    </style>
+</head>
+
+<body>
+<h1>Welcome to Continuity</h1>
+<br>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, deleniti dolores ea error esse explicabo fugiat in inventore magnam minus molestiae pariatur, praesentium quas quasi quis recusandae sapiente sequi, sit tempora tenetur vel veritatis voluptate? Aspernatur consequuntur deleniti doloribus error eum harum labore maiores, minus obcaecati odio quasi quia quibusdam quis repudiandae tempora temporibus velit voluptate voluptatem? Assumenda, deleniti, eveniet.</p>
+<div id="cover"></div>
+<a id="close" href="#">Click to Close</a>
+<ul>
+    <li><a id="page2" href="open_webpages3.html">Yahoo</a></li>
+    <li><a id="page3" href="open_webpages.html">Pleasures</a></li>
+
+</ul>
+<!--==============================jquery CDN===========================================-->
+<script
+        src="http://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+
+<!--==============================jquery IFFE + code==================================-->
+<script>
+    $(document).ready(function(){
+        $('#close').click(function() {
+            $('a').onclick(window.location ='http://www.msn.com');
+        });
+
+
+    });
+</script>
+</body>
+</html>

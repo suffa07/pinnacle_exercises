@@ -1,0 +1,359 @@
+/*body {
+    background: url('../img/AdobeStock_118344891.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+
+}*/
+
+
+html {
+    height: 100%;
+    width: 100%;
+
+
+}
+
+
+/*               ================================ Juke Box background ===================================         */
+
+div#pb {
+    z-index: -1;
+}
+
+div#bg {
+    background-image: url('../img/AdobeStock_118344891.jpeg');
+    background-size: 100%;
+    height: 875px;
+    width: 1420px;
+    background-repeat: no-repeat;
+    float: left;
+    position: relative;
+    z-index: -3;
+}
+
+div > h1 {
+    color: #CDC0AD;
+    position: absolute;
+}
+
+/*       ================================ Juke Box alphabet button shape/appearance =================================         */
+
+
+button {
+    opacity: .0;
+    /*background-color: ;*/
+    width: 28px;
+    height: 28px;
+   /* border: 1px solid green;*/
+
+}
+
+
+/*       ================================ Juke Box alphabet button representation ===================================         */
+
+
+button#c {
+    margin-left: 585px;
+    margin-top: 688px;
+    position: absolute;
+    float: left;
+}
+
+button#d {
+    margin-left: 630px;
+    margin-top: 688px;
+    position: absolute;
+    float: left;
+}
+button#e {
+    margin-left: 678px;
+    margin-top: 688px;
+    position: absolute;
+    float: left;
+}
+button#f {
+    margin-left: 730px;
+    margin-top: 688px;
+    position: absolute;
+    float: left;
+}
+
+
+
+/*       ================================ Juke Box numeric button representation ===================================         */
+
+
+button#one {
+    margin-left: 480px;
+    margin-top: 736px;
+    position: absolute;
+    float: left;
+}
+button#two {
+    margin-left: 530px;
+    margin-top: 736px;
+    position: absolute;
+    float: left;
+}
+button#three {
+    margin-left: 580px;
+    margin-top: 736px;
+    position: absolute;
+    float: left;
+}
+button#four {
+    margin-left: 630px;
+    margin-top: 736px;
+    position: absolute;
+    float: left;
+}
+button#five {
+    margin-left: 678px;
+    margin-top: 736px;
+    position: absolute;
+    float: left;
+}
+button#six {
+    margin-left: 727px;
+    margin-top: 736px;
+    position: absolute;
+    float: left;
+}
+button#seven {
+    margin-left: 778px;
+    margin-top: 736px;
+    position: absolute;
+    float: left;
+}
+/*       ================================ Juke Box button container properties =====================================         */
+
+div.btns {
+    position: absolute;
+    margin-left: 0px;
+    margin-top: 0px;
+    width: 28px;
+    height: 28px;
+    padding: 0px;
+    float: left;
+}
+
+
+
+/*                ================================ Juke Box labels ===================================                */
+
+div#label1 {
+    height: 73px;
+    width: 219px;
+    position: absolute;
+    float: left;
+    margin-left: 178px;
+    margin-top: 132px;
+    background-image: url("../img/Jukebox 1.png");
+    z-index: -1;
+
+}
+
+div#label2 {
+    height: 73px;
+    width: 219px;
+    position: absolute;
+    float: left;
+    margin-left: 178px;
+    margin-top: 220px;
+    background-image: url("../img/jukeboxLabel2.png");
+    z-index: -1;
+
+}
+
+div#label3 {
+    height: 73px;
+    width: 219px;
+    position: absolute;
+    float: left;
+    margin-left: 178px;
+    margin-top: 308px;
+    background-image: url("../img/Jukebox 1.png");
+    z-index: -1;
+
+}
+
+div#label4 {
+    height: 73px;
+    width: 219px;
+    position: absolute;
+    float: left;
+    margin-left: 479px;
+    margin-top: 133px;
+    background-image: url("../img/jukeboxLabel2.png");
+    z-index: -1;
+
+}
+
+div#label5 {
+    height: 73px;
+    width: 219px;
+    position: absolute;
+    float: left;
+    margin-left: 477px;
+    margin-top: 222px;
+    background-image: url("../img/Jukebox 1.png");
+    z-index: -1;
+
+}
+
+div#label6 {
+    height: 73px;
+    width: 219px;
+    position: absolute;
+    float: left;
+    margin-left: 739px;
+    margin-top: 133px;
+    background-image: url("../img/jukeboxLabel3.png");
+    z-index: -1;
+
+
+}
+
+div#label7 {
+    height: 73px;
+    width: 219px;
+    position: absolute;
+    float: left;
+    margin-left: 1041px;
+    margin-top: 133px;
+    background-image: url("../img/jukeboxLabel2.png");
+    z-index: -1;
+
+}
+
+
+
+
+/*                ================================ Juke Box playlist ===================================                */
+
+
+
+li {
+    list-style: none;
+}
+
+div#rock1 {
+    position: absolute;
+    float: left;
+    height: 36px;
+    width: 219px;
+    margin-left: 745px;
+    margin-top: 150px;
+    font-size: small;
+
+}
+
+div#classic1 {
+    position: absolute;
+    float: left;
+    height: 36px;
+    width: 219px;
+    margin-left: 190px;
+    margin-top: 152px;
+    font-size: small;
+}
+div#classic2 {
+    position: absolute;
+    float: left;
+    height: 36px;
+    width: 219px;
+    margin-left: 205px;
+    margin-top: 240px;
+    font-size: small;
+}
+div#classic3 {
+    position: absolute;
+    float: left;
+    height: 36px;
+    width: 219px;
+    margin-left: 195px;
+    margin-top: 330px;
+    font-size: small;
+}
+div#classic4 {
+    position: absolute;
+    float: left;
+    height: 36px;
+    width: 219px;
+    margin-left: 490px;
+    margin-top: 152px;
+    font-size: small;
+}
+div#classic5 {
+    position: absolute;
+    float: left;
+    height: 36px;
+    width: 219px;
+    margin-left: 465px;
+    margin-top: 240px;
+    font-size: small;
+}
+
+div#classic7 {
+    position: absolute;
+    float: left;
+    height: 36px;
+    width: 219px;
+    margin-left: 745px;
+    margin-top: 150px;
+    font-size: small;
+}
+
+/*=========================== Track Time ================================*/
+
+div#ttime {
+    width: 167px;
+    height: 28px;
+    margin-left: 1013px ;
+    margin-top: 25px;
+    background-color: #DDD5C8;
+    float: left;
+    position: absolute;
+}
+
+span#ticker {
+    width: 167px;
+    height: 28px;
+    font-size: 14pt;
+    margin-left: 35px;
+
+}
+
+/*=========================== Custom Controls ==============================*/
+
+a#Play1 {
+    position: absolute;
+    float: left;
+    margin-top: 30px;
+    margin-left: 600px;
+    height: 28px;
+    width: 120px;
+    color: #DDD5C8;
+    font-size: 16pt;
+    z-index: -1;
+    text-decoration: none;
+
+}
+
+a#Stop1 {
+    position: absolute;
+    float: left;
+    margin-top: 30px;
+    margin-left: 800px;
+    height: 28px;
+    width: 120px;
+    color: #DDD5C8;
+    font-size: 16pt;
+    z-index: -1;
+    text-decoration: none;
+}
+
+

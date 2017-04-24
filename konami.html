@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/konami.css">
+</head>
+    <body>
+
+        <div id="bg">
+            <h1>Codeup Juke Box</h1>
+
+
+            <!--========================= Determines if browser supports one format or another... ==========-->
+            <audio id="track" preload="auto" type="audio/mpeg" ontimeupdate="displayTime(this)">
+                <source src="mp3/LedZeppelinWhenTheLeveeBreaks.mp3" type="audio/mpeg">
+                Unsupported audio format!
+            </audio>
+
+
+            <ul class="playlist">
+
+                <div id="rock1"><li class="active" data-audiourl="mp3/LedZeppelinWhenTheLeveeBreaks.mp3"><span>WHEN THE LEVEE BREAKS</span></li></div>
+                <div id="classic1"><li class="active" data-audiourl ="mp3/BillWithersKissinMyLove.mp3"><span>KISSIN' MY LOVE</span></li></div>
+                <div id="classic2"><li class="active" data-audiourl ="mp3/GeorgeClintonAtomicDog.mp3"><span>ATOMIC DOC</span></li></div>
+                <div id="classic3"><li class="active" data-audiourl ="mp3/IsaacHayesDoYourThing.mp3"><span>DO YOUR THING</span></li></div>
+                <div id="classic4"><li class="active" data-audiourl ="mp3/ParliamentFunkentelechy.mp3"><span>FUNKENTELECHY</span></li></div>
+                <div id="classic5"><li class="active" data-audiourl ="mp3/TheHoneyDrippersImpeachThePresident.mp3"><span>IMPEACH THE PRESIDENT</span></li></div>
+
+            </ul>
+
+            <div class="song" id="label1"></div>
+            <div class="song" id="label2"></div>
+            <div class="song" id="label3"></div>
+            <div class="song" id="label4"></div>
+            <div class="song" id="label5"></div>
+            <div class="song" id="label6"></div>
+            <div class="song" id="label7"></div>
+
+
+
+            <!--======== Custom Controls ========-->
+            <a href="#" id="Play1">Play</a>
+            <a href="#" id="Stop1">Stop</a>
+
+
+
+            <!--============= Track Time =============-->
+            <div id="ttime"><span id="ticker">00:00/00:00</span></div>
+
+
+
+
+            <!--============== Buttons =================-->
+            <div class="btns"><button id="c"></button></div>
+            <div class="btns"><button id="d"></button></div>
+            <div class="btns"><button id="e"></button></div>
+            <div class="btns"><button id="f"></button></div>
+            <div class="btns"><button id="one"></button></div>
+            <div class="btns"><button id="two"></button></div>
+            <div class="btns"><button id="three"></button></div>
+            <div class="btns"><button id="four"></button></div>
+            <div class="btns"><button id="five"></button></div>
+            <div class="btns"><button id="six"></button></div>
+            <div class="btns"><button id="seven"></button></div>
+        </div>
+    <script
+            src="http://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <!--<script src="js/state-machine.js" ></script>
+    <script src="js/bootstrap.min.js"></script>-->
+    <script>
+        $(document).ready(function() {
+            "use strict";
+
+
+
+//            $(document).keyup(function(event) {
+//                console.log(event.keyCode);
+//            });
+
+
+
+
+//      ============= Global Variables ===================
+        var keyCount = 0;
+        var alphaC = document.getElementById('c');
+        var alphaD = document.getElementById('d');
+        var alphaE = document.getElementById('e');
+        var alphaF = document.getElementById('f');
+        var num1 = document.getElementById('one');
+        var num2 = document.getElementById('two');
+        var num3 = document.getElementById('three');
+        var num5 = document.getElementById('five');
+        var num6 = document.getElementById('six');
+        var num7 = document.getElementById('seven');
+        var playbtn = document.getElementById('Play1');
+        var stopbtn = document.getElementById('Stop1');
+        var myAudio = document.getElementById('track');
+        var myAudio2 = document.getElementsByClassName('.active');
+        var aud = document.getElementsByTagName('audio')[0];
+        var sec = new Number();
+        var min = new Number();
+        var ct_sec = new Number();
+        var ct_min = new Number();
+        var ct_ms = new Number();
+
+
+
+
+
+
+
+
+
+
+            /*============= Initialize the First track in Playlist =============*/
+        initAudio($('.playlist li:first-child'));
+
+
+
+
+        function initAudio(elem) {
+            var url = elem.attr('data-audiourl');
+            var title = elem.text();
+
+
+
+            //initialize our audio object with song from playlist
+            document.getElementById('track').src = url;
+
+
+            /*$('.playlist li').removeClass('active');
+            elem.addClass('active');*/
+        }
+
+
+            /*============= Play and Pause Audio =============*/
+
+            $(playbtn).click(function () {
+                $(document).keyup(function(e) {
+                    if (e.keyCode == "38") {
+                        keyCount++;
+                    }
+                    if (keyCount == 2) {
+                        keyCount = 0;
+                    }
+                    if (e.keyCode == "40") {
+                        keyCount++;
+                        if (keyCount == 2) {
+                            keyCount = 0;
+                        }
+                    }
+                    if (e.keyCode == "37") {
+                        keyCount++;
+                    }
+                    if (keyCount == 1) {
+                        keyCount = 0;
+                    }
+                    if (e.keyCode == "39") {
+                        keyCount++;
+                        if (keyCount == 1) {
+                            keyCount = 0;
+                        }
+                    }
+                    if (e.keyCode == "37") {
+                        keyCount++;
+                    }
+                    if (keyCount == 1) {
+                        keyCount = 0;
+                    }
+                    if (e.keyCode == "39") {
+                        keyCount++;
+                        if (keyCount == 1) {
+                            keyCount = 0;
+                        }
+                    }
+                    if (e.keyCode == "66") {
+                        keyCount++;
+                    }
+                    if (keyCount == 1) {
+                        keyCount = 0;
+                    }
+                    if (e.keyCode == "65") {
+                        keyCount++;
+                        if (keyCount == 1) {
+                            keyCount = 0;
+                        }
+                    }
+                    if (e.keyCode == "13") {
+                        alert('You now have audio access!');
+                        myAudio.play();
+                    }
+                });
+
+
+            });
+
+            $(stopbtn).click(function () {
+                myAudio.pause();
+            });
+
+
+
+
+
+            /*====== Forward or Reverse audio by selecting Controls * ADD LATER ====*/
+
+            /*$('.song').click(function (e) {
+                e.preventDefault();
+
+                stopAudio();
+
+                var next = $('.playlist li.active').next();
+                if (next.length == 0) {
+                    next = $('.playlist li:first-child');
+                }
+                initAudio(next);
+                playAudio();
+
+            });*/
+
+            /*====== Forward or Reverse audio by selecting Song Label ====*/
+
+            $('.playlist li').click(function () {
+                myAudio.play();
+            });
+
+
+
+            /*=== P Key => Play ===*/
+            $(document).keyup(function(e) {
+                if (e.keyCode == "80") {
+                    myAudio.play();
+                }
+            });
+
+
+
+             /*=== S Key => Stop/Pause ===*/
+            $(document).keyup(function(e) {
+                if (e.keyCode == "83") {
+                    myAudio.pause();
+                }
+            });
+
+
+
+            /*=== F Key => Forward ===*/
+            /*$(document).keyup(function(e) {
+                if (e.keyCode == "70") {
+                    myAudio.pause();
+                }
+                var next = $('.playlist li.active').next();
+                if (next.length == 0) {
+                    next = $('.playlist li:first-child');
+                }
+                initAudio(next);
+                myAudio.play();
+            });*/
+
+
+
+
+            /*=== B Key => back ===*/
+            $(document).keyup(function(e) {
+                if (e.keyCode == "66") {
+                    myAudio.play();
+                }
+            });
+
+
+
+
+            /*  ============= Set Current Track Time and Track Length ==============  */
+
+
+
+
+            function displayTime(event) {
+
+                sec = Math.floor(event.duration);
+                min = Math.floor(sec / 60);
+                min = min >= 10 ? min : '0' + min;
+                sec = Math.floor(sec % 60);
+                sec = sec >= 10 ? sec : '0' + sec;
+
+
+                ct_sec = Math.floor(event.currentTime);
+                ct_min = Math.floor(ct_sec / 60);
+                ct_min = ct_min >= 10 ? ct_min : '0' + ct_min;
+                ct_sec = Math.floor(ct_sec % 60);
+                ct_sec = ct_sec >= 10 ? ct_sec : '0' + ct_sec;
+
+
+                document.getElementById('ticker').innerHTML = ct_min + ":" + ct_sec + "/" + min + ":" + sec;
+
+            }
+
+            /* ====== Using a reference to the displayTime function with window to make it Global to my HTML ====*/
+
+
+            window.displayTime = displayTime;
+
+
+
+
+
+
+
+
+                /* Solved Konami problem with state machine */
+
+//        var ksm = StateMachine.create({
+//            initial: null,
+//            events: [
+//                { name: 'up', from: 'none', to: '38' },
+//                { name: 'dwn', from: '38', to: '40' },
+//                { name: 'lftrht', from: '37', to: '39' },
+//                { name: 'rhtlft', from: '39', to: '37' },
+//                { name: 'rhta', from: '39', to: '65' },
+//                { name: 'b', from: '65', to: '66' },
+//                { name: 'ent', from: '66', to: '13' }],
+//            callbacks: {
+//                onkanami: function(event, from, to, msg) { alert('You have added 30 lives!')}
+//            }
+//
+//        });
+//
+//        ksm.up();
+//        ksm.dwn();
+//        ksm.lftrht();
+//        ksm.rhtlft();
+//        ksm.rhta();
+//        ksm.b();
+//        ksm.ent();
+//
+//        console.log(ksm.current);
+//        ksm.startup();
+//        console.log(ksm.current)
+
+
+
+
+        });
+
+    </script>
+    </body>
+</html>
