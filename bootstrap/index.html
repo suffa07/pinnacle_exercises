@@ -41,6 +41,14 @@
             font-family: 'Raleway', sans-serif;
             color: white;
         }
+
+        ul.nav {
+            font-family: 'Raleway', sans-serif;
+            color: white;
+            font-weight: bolder;
+        }
+
+
     </style>
 
 
@@ -90,7 +98,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h2>... all about Code</h2>
+                        <h2 id="blg-title">... all about Code</h2>
                         <hr class="small">
                         <span class="subheading">All things Codeup</span>
                     </div>
@@ -105,7 +113,9 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <a href="#">
+
                         <!--======================= My JSON Content is placed here ============================-->
+
                         <h3><p id="post-title"></p></h3>
                         <h5><p id="post-subtitle"></p></h5>
                     <p id="jq-content"></p>
@@ -181,6 +191,8 @@
         $(document).ready(function() {
 
             "use strict";
+
+            $('#blg-title').hide().fadeIn(2500);
             var url = "../data/blog.json";
 
 
@@ -193,10 +205,14 @@
                     $("#jq-content").append("<h2>" + data[i].title + "</h2>" + "<br><br>" + data[i].content + "<br><br>" + data[i].date + "<br><br><br>");
                     /*$("#blog-date").append( data[i].date + "<br>");*/
 
-
                 }
 
             })
+
+            $('#bl').click(function () {
+                $(this).next().hide();
+
+            });
 
         });
     </script>
