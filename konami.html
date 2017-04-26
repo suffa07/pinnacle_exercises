@@ -117,7 +117,7 @@
 
 
             /*============= Initialize the First track in Playlist =============*/
-        initAudio($('.playlist li:first-child'));
+//        initAudio($('.playlist li:first-child'));
 
 
 
@@ -141,58 +141,7 @@
 
             $(playbtn).click(function () {
                 $(document).keyup(function(e) {
-                    if (e.keyCode == "38") {
-                        keyCount++;
-                    }
-                    if (keyCount == 2) {
-                        keyCount = 0;
-                    }
-                    if (e.keyCode == "40") {
-                        keyCount++;
-                        if (keyCount == 2) {
-                            keyCount = 0;
-                        }
-                    }
-                    if (e.keyCode == "37") {
-                        keyCount++;
-                    }
-                    if (keyCount == 1) {
-                        keyCount = 0;
-                    }
-                    if (e.keyCode == "39") {
-                        keyCount++;
-                        if (keyCount == 1) {
-                            keyCount = 0;
-                        }
-                    }
-                    if (e.keyCode == "37") {
-                        keyCount++;
-                    }
-                    if (keyCount == 1) {
-                        keyCount = 0;
-                    }
-                    if (e.keyCode == "39") {
-                        keyCount++;
-                        if (keyCount == 1) {
-                            keyCount = 0;
-                        }
-                    }
-                    if (e.keyCode == "66") {
-                        keyCount++;
-                    }
-                    if (keyCount == 1) {
-                        keyCount = 0;
-                    }
-                    if (e.keyCode == "65") {
-                        keyCount++;
-                        if (keyCount == 1) {
-                            keyCount = 0;
-                        }
-                    }
-                    if (e.keyCode == "13") {
-                        alert('You now have audio access!');
-                        myAudio.play();
-                    }
+                    myAudio.play();
                 });
 
 
@@ -224,8 +173,12 @@
 
             /*====== Forward or Reverse audio by selecting Song Label ====*/
 
-            $('.playlist li').click(function () {
-                myAudio.play();
+            $('li').click(function (e) {
+                e.preventDefault();
+                var liUrl = $(this).attr('data-audiourl');
+//                document.getElementById('track').src = url;
+                initAudio(liUrl);
+
             });
 
 

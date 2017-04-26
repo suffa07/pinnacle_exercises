@@ -2,9 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>JQuery Exercise</title>
 
-</body>
+    <style>
+        .invisible {
+            display: none;
+        }
+
+        .visible {
+            display: list-item;
+
+        }
+        </style>
+</head>
+    <body>
+    <div>
+        <h1>Would you like to sign up for our newsletter?</h1>
+        <span>x</span>
+    </div>
+        <!--<span id="tog">Toggle</span>-->
+
+        <!--<dl>
+            <dt>Acadia</dt>
+            <dd class="invisible visible">This park is in Maine, and was founded in 1919.</dd>
+            <dt>American Somoa</dt>
+            <dd class="invisible visible">This park is in American Samoa, and was founded in 1988.</dd>
+            <dt>Arches</dt>
+            <dd class="invisible visible">This park is in Utah, and was founded 1971.</dd>
+            <dt>Badlands</dt>
+            <dd class="invisible visible">This park is in Sout Dakota, and was founded 1978</dd>
+            <dt>Big Bend</dt>
+            <dd class="invisible visible">This park is in Texas, and was founded 1944</dd>
+            <dt>Biscanye</dt>
+            <dd class="invisible visible">This park is in Florida, and was founded in 1980</dd>
+            <dt>Black Canyon of the Gunnison</dt>
+            <dd class="invisible visible">This park is in Colorado, and was founded in 1999.</dd>
+            <dt>Bryce Canyon</dt>
+            <dd class="invisible visible">This park is in Utah, and was founded 1928.</dd>
+            <dt>Yellowstone</dt>
+            <dd class="invisible visible">This park is in Wyoming, Montana, and Idaho, and was founded 1872.</dd>
+            <dt>Yosemite</dt>
+            <dd class="invisible visible">This park is in California, and was founded 1890</dd>
+        </dl>-->
+
+        <h2>Register for the site</h2>
+        <h3>Park 1</h3>
+        <ul>
+            <h3><li>Acadia</li></h3>
+            <li>merican Somoa</li>
+            <li>Arches</li>
+        </ul>
+        <h3>Park 2</h3>
+         <ul>
+             <h3><li>Badlands</li></h3>
+            <li>Big Bend</li>
+            <li>Biscany</li>
+        </ul>
+        <h3>Park 3</h3>
+         <ul>
+             <h3><li>Black Canyone</li></h3>
+            <li>Yellowstone</li>
+            <li>Yosemite</li>
+        </ul>
+
+        <label for="button1">Add Color:</label>
+        <button id="button1"></button>
+
+        <script
+                src="http://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                'use strict';
+
+                /*$('#tog').click(function (e) {
+                    e.preventDefault();
+                    $('.invisible').toggleClass('visible');
+                });
+
+                $('dt').click(function () {
+                    $(this).css('background-color', 'yellow');
+                });*/
+
+                $('ul').hide();
+
+                $('#button1').click(function () {
+                    $('ul').each(function (index, elment) {
+                        $(elment).children().last().css('background-color', 'pink');
+
+                    });
+
+                });
+
+                $('li').click(function () {
+
+                    $('ul').each(function (index, elment) {
+                        $(elment).children().first().css('color', 'blue');
+                    });
+                });
+
+                $('h4').click(function () {
+
+                    $('ul').each(function (index, elment) {
+                        $(elment).children().css('font-weight', 'bold');
+                    });
+
+                });
+
+                $('span').click(function () {
+                    $('div').hide();
+
+                });
+
+                $('h3').click(function () {
+                    $(this).next().slideToggle(1000);
+//
+                });
+
+                $('h2').hide().delay(8000).fadeIn('slow');
+
+
+
+            });
+
+        </script>
+    </body>
 </html>

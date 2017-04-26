@@ -2,9 +2,126 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Bonus</title>
+    <style>
+        div.frame1 {
+            height: 200px;
+            width: 200px;
+            margin-top: 100px;
+            margin-left: 50px;
+            border: 3px dashed darkorange;
+        }
+        div.frame2 {
+            height: 200px;
+            width: 200px;
+            margin-top: 100px;
+            margin-left: 50px;
+            border: 3px dashed darkorange;
+        }
+        div.frame3 {
+            height: 200px;
+            width: 200px;
+            margin-top: 100px;
+            margin-left: 50px;
+            border: 3px dashed darkorange;
+        }
+
+        .leftee {
+            background-image: url(img/smallcirlcles.jpg);
+            float: left;
+        }
+
+        .centee {
+            background-image: url(img/functions-audio-equalizer.jpg);
+            float: left
+
+        }
+
+        .rightee {
+            background-image: url(img/trove-image.png);
+            float: left;
+
+        }
+
+        .container {
+            height: 650px;
+            width:  1000px;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        button {
+            height: 25px;
+            width: 50px;
+            margin-top: 400px;
+            margin-left: -140px;
+            position: absolute;
+            float: left;
+        }
+    </style>
 </head>
-<body>
-$END$
-</body>
+    <body>
+        <div class="container">
+            <div class="frame1 leftee" id="left"></div>
+            <button id="lft">Left</button>
+            <div class="frame2 centee" id="center"></div>
+            <button id="cent">Center</button>
+            <div class="frame3 rightee" id="right"></div>
+            <button id="rht">Right</button>
+        </div>
+
+
+        <script
+                src="http://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                'use strict';
+
+
+                /*======= Global Variables ========*/
+
+
+
+                $('#lft').click(function (evnt) {
+                    $('.frame1').removeClass('leftee');
+                    $('.frame2').removeClass('centee');
+                    var kids = $('.container').children();
+                    $(kids[0]).addClass('centee');
+                    $(kids[2]).addClass('leftee');
+
+                    /*$('.container div:first').addClass(kids);
+                    $('.container div:last').addClass(kids);*/
+                    /*$('.container').children().first().addClass('centee');
+                    $('.container').children('#center').addClass('centee');*/
+
+
+                });
+
+                $('#cent').click(function () {
+                    var stack = ['leftee', 'rightee'];
+                    var rand = Math.floor(Math.random() * (2 - 0) + 0);
+                    var res = stack[rand];
+                    $('.frame2').removeClass('leftee');
+                    var kids = $('.container').children();
+                    $(kids[2]).addClass('rightee');
+
+
+                });
+
+                $('#rht').click(function () {
+                    $('.frame3').removeClass('rightee');
+                    $('.frame2').removeClass('leftee');
+                    var kids = $('.container').children();
+                    $(kids[2]).addClass('rightee');
+                    $(kids[4]).addClass('centee');
+//                    $('div.fourth').replaceWith($('centee'));
+
+                });
+
+            });
+
+        </script>
+    </body>
 </html>

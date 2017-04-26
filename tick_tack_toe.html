@@ -2,9 +2,288 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Tick Tack Toe</title>
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <style>
+        div.square {
+            height: 200px;
+            width: 200px;
+            background-color: green;
+            border: 2px solid black;
+            z-index: -3;
+        }
+        div#container{
+            position: relative;
+            height: 600px;
+            width: 650px;
+            margin: 0 auto;
+        }
+
+        div#quad1 {
+           float: left;
+            /*position: absolute;*/
+            /*margin-left: 80px;*/
+            background-image: url(img/x.png);
+
+
+        }
+        div#quad2 {
+           float: left;
+           /*margin-left: 50px;*/
+            /*position: absolute;*/
+
+        }
+        div#quad3 {
+           float: left;
+            /*position: absolute;*/
+            /*margin-left: 50px;*/
+            background-image: url(img/o.png);
+        }
+        div#quad4 {
+           float: left;
+            /*position: absolute;*/
+            /*margin-left: 80px;*/
+        }
+        div#quad5 {
+           float: left;
+            /*margin-left: 50px;*/
+
+            /*position: absolute;*/
+        }
+        div#quad6 {
+           float: left;
+            /*margin-left: 50px;*/
+            /*position: absolute;*/
+        }
+        div#quad7 {
+           float: left;
+            /*margin-left: 80px;*/
+            /*position: absolute;*/
+        }
+        div#quad8 {
+           float: left;
+            /*margin-left: 50px;*/
+            /*position: absolute;*/
+        }
+        div#quad9 {
+           float: left;
+            /*margin-left: 50px;*/
+            /*position: absolute;*/
+        }
+
+        span {
+            position: absolute;
+            margin-top: 40px;
+            margin-left: 70px;
+            font-size: 60pt;
+            color: fuchsia;
+            /*font-family: 'Orbitron', sans-serif;*/
+            font-family: 'Permanent Marker', cursive;
+        }
+
+
+
+    </style>
 </head>
-<body>
-$END$
-</body>
+    <h3>Tick Tack Toe</h3>
+    <body>
+        <div id="container">
+            <div class="square" id="quad1"><span id="x1">X</span><span ide="o1">O</span></div>
+            <div class="square" id="quad2"><span id="x2">X</span><span ide="o2">O</span></div>
+            <div class="square" id="quad3"><span id="x3">X</span><span ide="o3">O</span></div>
+
+
+
+            <div class="square" id="quad4"><span id="x4">X</span><span ide="o4">O</span></div>
+            <div class="square" id="quad5"><span id="x5">X</span><span ide="o5">O</span></div>
+            <div class="square" id="quad6"><span id="x6">X</span><span ide="o6">O</span></div>
+
+
+
+            <div class="square" id="quad7"><span id="x7">X</span><span ide="o7">O</span></div>
+            <div class="square" id="quad8"><span id="x8">X</span><span ide="o8">O</span></div>
+            <div class="square" id="quad9"><span id="x9">X</span><span ide="o9">O</span></div>
+        </div>
+        <ul id="names">
+
+        </ul>
+        <script
+                src="http://code.jquery.com/jquery-2.2.4.min.js"
+                integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+                crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function () {
+                'use strict';
+
+                /*====================== Global Variables ============================*/
+                var xCount = 0;
+                var oCount = 0;
+                var playerX, playerO, gBoard_empty;
+                var gstate_Xwin, gstate_Owin;
+                var xWin, oWin;
+                var gstate_xTurn, gstate_oTurn, gstate_Draw, gstate_Unknown;
+
+
+
+
+                /*====================== Create a 3 dimensional array to create Grid Logic for the board ===================*/
+
+                var gridBoard = [[0, 0, 0],[0, 0, 0],[0, 0, 0]];
+
+
+
+                /*====================== Grid Logic ==================================*/
+
+                function gridGameState (grid) {
+                    for (var i = 0; i <= 9; i++) {
+                        switch (grid[i]) {
+
+                            case playerX:
+                                xCount++;
+                                break;
+
+                            case playerO:
+                                oCount++;
+                                break;
+
+                            case gBoard_empty:
+                                break;
+
+                            case xWin:
+                                return gstate_Xwin;
+                                break;
+
+                            case oWin:
+                                return gstate_Owin;
+                                break;
+
+                            default:
+                                break;
+
+                        }
+                    }
+
+                    if (xCount == 5) {
+                        return gstate_Draw;
+                    } else if (xCount == oCount) {
+                        return gstate_xTurn;
+                    } else {
+                        return gstate_oTurn;
+                    }
+                    return gstate_Unknown;
+
+                }
+
+
+
+
+
+
+                $('span').hide();
+
+
+                var result = $('.sqaure').on('click change', function () {
+                    $(this).data('clicked', true)
+                });
+
+
+
+
+                $('#quad1').click(function () {
+                    $('#x1').fadeIn(500);
+
+                });
+                $('#quad2').click(function () {
+                    $('#x2').fadeIn(500);
+
+                });
+                $('#quad3').click(function () {
+                    $('#x3').fadeIn(500);
+
+                });
+                $('#quad4').click(function () {
+                    $('#x4').fadeIn(500);
+
+                });
+                $('#quad5').click(function () {
+                    $('#x5').fadeIn(500);
+
+                });
+                $('#quad6').click(function () {
+                    $('#x6').fadeIn(500);
+
+                });
+                $('#quad7').click(function () {
+                    $('#x7').fadeIn(500);
+
+                });
+                $('#quad8').click(function () {
+                    $('#x8').fadeIn(500);
+
+                });
+                $('#quad9').click(function () {
+                    $('#x9').fadeIn(500);
+
+                });
+
+
+
+
+
+
+
+
+
+
+//                Ajax
+/*
+                var options = {
+                    "data": {
+
+
+                        "name": "Del",
+                        "age":35,
+                        "single": true
+                    },
+
+                    "type": "GET"
+                };
+
+                function writeLines(data) {
+                    data.results.forEach(function (el) {
+                    $("#names").append("<li>"+el.name+"</li>");
+                    });
+                }
+
+                $.ajax('http://swapi.co/api/people',options);*/
+
+
+
+
+               /* $.ajax('http://swapi.co/api/people',
+                {
+                    "data": {s
+
+
+                        "name": "Del",
+                        "age":35,
+                        "single": true
+                    },
+
+                    "type": "GET"
+                }).done(function (data) {
+                    console.log(data.results);
+                    data.results.forEach(function (el) {
+                       console.log(el);
+                       $("#names").append("<li>"+el.name+"</li>");
+                    });
+
+                });*/
+                    
+
+
+
+            });
+        </script>
+    </body>
 </html>

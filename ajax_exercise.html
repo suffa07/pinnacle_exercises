@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+    <body>
+        <script
+            src="http://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+
+        <script>
+            $(document).ready(function () {
+               'use strict';
+
+               /*=== Seven categories to choose from the Star Wars API ====*/
+               var categ = ['peole', 'films', 'planets', 'species'];
+               var url = 'http://swapi.co/api/'+categ[0];
+
+                var options = {
+                    "data": {
+
+                        "name": "Del",
+                        "age":35,
+                        "single": true
+//                        "search": "search Title here"
+                    },
+
+                    "type": "GET"
+
+
+                };
+
+                $.ajax(url, options);
+
+                function writeLines(data) {
+                    data.results.forEach(function (el) {
+                        $("#names").append("<li>"+el.name+"</li>");
+                    });
+                }
+
+
+               /*short hand $.get(url, {objec{ }}).done(...)*/
+
+
+
+            /* $.ajax('http://swapi.co/api/people',
+             {
+             "data": {
+
+             "name": "Del",
+             "age":35,
+             "single": true
+             },
+
+             "type": "GET"
+             }).done(function (data) {
+             console.log(data.results);
+             data.results.forEach(function (el) {
+             console.log(el);
+             $("#names").append("<li>"+el.name+"</li>");
+             });*/
+
+
+
+
+            });
+
+        </script>
+    </body>
+</html>
