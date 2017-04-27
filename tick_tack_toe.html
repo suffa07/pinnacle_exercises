@@ -88,21 +88,21 @@
     <h3>Tick Tack Toe</h3>
     <body>
         <div id="container">
-            <div class="square" id="quad1"><span id="x1">X</span><span ide="o1">O</span></div>
-            <div class="square" id="quad2"><span id="x2">X</span><span ide="o2">O</span></div>
-            <div class="square" id="quad3"><span id="x3">X</span><span ide="o3">O</span></div>
+            <div class="square" id="quad1"></div>
+            <div class="square" id="quad2"></div>
+            <div class="square" id="quad3"></div>
 
 
 
-            <div class="square" id="quad4"><span id="x4">X</span><span ide="o4">O</span></div>
-            <div class="square" id="quad5"><span id="x5">X</span><span ide="o5">O</span></div>
-            <div class="square" id="quad6"><span id="x6">X</span><span ide="o6">O</span></div>
+            <div class="square" id="quad4"></div>
+            <div class="square" id="quad5"></div>
+            <div class="square" id="quad6"></div>
 
 
 
-            <div class="square" id="quad7"><span id="x7">X</span><span ide="o7">O</span></div>
-            <div class="square" id="quad8"><span id="x8">X</span><span ide="o8">O</span></div>
-            <div class="square" id="quad9"><span id="x9">X</span><span ide="o9">O</span></div>
+            <div class="square" id="quad7"></div>
+            <div class="square" id="quad8"></div>
+            <div class="square" id="quad9"></div>
         </div>
         <ul id="names">
 
@@ -129,6 +129,18 @@
                 /*====================== Create a 3 dimensional array to create Grid Logic for the board ===================*/
 
                 var gridBoard = [[0, 0, 0],[0, 0, 0],[0, 0, 0]];
+
+
+
+
+                /* ===================== Board Logic =================================*/
+
+                $('.square').click(function (event) {
+                    event.target.id
+
+                });
+
+
 
 
 
@@ -178,51 +190,48 @@
 
 
 
+                /*$('.square').click(function (event) {
+                    alert(event.target.id);
 
-                $('span').hide();
-
-
-                var result = $('.sqaure').on('click change', function () {
-                    $(this).data('clicked', true)
-                });
+                });*/
 
 
 
 
                 $('#quad1').click(function () {
-                    $('#x1').fadeIn(500);
+
 
                 });
                 $('#quad2').click(function () {
-                    $('#x2').fadeIn(500);
+
 
                 });
                 $('#quad3').click(function () {
-                    $('#x3').fadeIn(500);
+
 
                 });
                 $('#quad4').click(function () {
-                    $('#x4').fadeIn(500);
+
 
                 });
                 $('#quad5').click(function () {
-                    $('#x5').fadeIn(500);
+
 
                 });
                 $('#quad6').click(function () {
-                    $('#x6').fadeIn(500);
+
 
                 });
                 $('#quad7').click(function () {
-                    $('#x7').fadeIn(500);
+
 
                 });
                 $('#quad8').click(function () {
-                    $('#x8').fadeIn(500);
+
 
                 });
                 $('#quad9').click(function () {
-                    $('#x9').fadeIn(500);
+
 
                 });
 
