@@ -103,34 +103,43 @@
         }
 
         div#icon {
+            height: 50px;
+            width: 50px;
+            padding: 0px;
 
         }
 
         div#icon2 {
+            height: 50px;
+            width: 50px;
+            padding: 0px;
 
         }
 
         div#icon3 {
+            height: 50px;
+            width: 50px;
+            padding: 0px;
 
         }
 
         ul#w_read {
             width: 197px;
-            padding-top: 100px;
+            padding-top: 80px;
             list-style: none;
 
         }
 
         ul#w_read2 {
             width: 197px;
-            padding-top: 100px;
+            padding-top: 80px;
             list-style: none;
 
         }
 
         ul#w_read3 {
             width: 197px;
-            padding-top: 100px;
+            padding-top: 80px;
             list-style: none;
 
         }
@@ -140,6 +149,10 @@
             position: relative;
             margin-bottom: 10px;
 
+        }
+
+        #icon img {
+            z-index: -1;
         }
 
 
@@ -181,8 +194,7 @@
             $.get(url, {
                 APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
                 q: "San Antonio, TX",
-                cnt: 3,
-                icon: "01d"
+                cnt: 3
             }).done(function (data) {
                 /*for (var i = 0; i < data.length; i++) {
                  $('div#inner').append("<h2>" + Object.values(data)[0].name + "</h2>");
@@ -198,13 +210,13 @@
                 var humidity = Object.values(data)[4][0].humidity;
                 var pressure = Object.values(data)[4][0].pressure;
                 var icon = Object.values(data)[4][0].weather[0].icon;
-//                var wind = Object.values(data)[4][0].weather;
+                var wind = Object.values(data)[4][0].weather;
 
 
                 $('span#city').append("<h3>" + ciTy + "</h3>");
                 $('div#tempHL').append("<h3>" + kelvFar(temp_H) + "°" + "/" + kelvFar(temp_L) + "°" + "</h3>");
                 $('#w_read').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
-
+                $('#icon').append("<img src=http://openweathermap.org/img/w/[" + icon + "].png");
 
                 /* ============== Day 2 ================== */
 
@@ -213,6 +225,7 @@
                 var clouds = Object.values(data)[4][1].clouds;
                 var humidity = Object.values(data)[4][1].humidity;
                 var pressure = Object.values(data)[4][1].pressure;
+//                var icon = Object.values(data)[4][0].weather[1].icon;
 //                var wind = Object.values(data)[4][1].weather;
 
 
@@ -227,6 +240,7 @@
                 var clouds = Object.values(data)[4][2].clouds;
                 var humidity = Object.values(data)[4][2].humidity;
                 var pressure = Object.values(data)[4][2].pressure;
+//                var icon = Object.values(data)[4][0].weather[2].icon;
 //                var wind = Object.values(data)[4][2].weather;
 
 
@@ -234,8 +248,8 @@
                 $('#w_read3').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
 
 
-                console.log(icon);
-                console.log(Object.values(data));
+//                console.log(icon);
+                console.log(Object.values(data)[4][0].weather[0].icon);
             });
 
             function kelvFar(k) {
