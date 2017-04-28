@@ -125,21 +125,22 @@
 
         ul#w_read {
             width: 197px;
-            padding-top: 80px;
+            padding-top: 150px;
             list-style: none;
+            /*position: absolute;*/
 
         }
 
         ul#w_read2 {
             width: 197px;
-            padding-top: 80px;
+            padding-top: 150px;
             list-style: none;
 
         }
 
         ul#w_read3 {
             width: 197px;
-            padding-top: 80px;
+            padding-top: 150px;
             list-style: none;
 
         }
@@ -155,6 +156,32 @@
             z-index: -1;
         }
 
+        div#icon {
+            height: 50px;
+            width: 50px;
+            margin-top: 90px;
+            margin-right: 0px;
+            margin-left: 112px;
+            position: absolute;
+        }
+
+        div#icon2 {
+            height: 50px;
+            width: 50px;
+            margin-top: 90px;
+            margin-right: 0px;
+            margin-left: 112px;
+            position: absolute;
+        }
+
+        div#icon3 {
+            height: 50px;
+            width: 50px;
+            margin-top: 90px;
+            margin-right: 0px;
+            margin-left: 112px;
+            position: absolute;
+        }
 
     </style>
 </head>
@@ -216,7 +243,7 @@
                 $('span#city').append("<h3>" + ciTy + "</h3>");
                 $('div#tempHL').append("<h3>" + kelvFar(temp_H) + "°" + "/" + kelvFar(temp_L) + "°" + "</h3>");
                 $('#w_read').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
-                $('#icon').append("<img src=http://openweathermap.org/img/w/[" + icon + "].png");
+                $('#icon').append("<img src=http://openweathermap.org/img/w/" + icon + ".png>");
 
                 /* ============== Day 2 ================== */
 
@@ -225,13 +252,13 @@
                 var clouds = Object.values(data)[4][1].clouds;
                 var humidity = Object.values(data)[4][1].humidity;
                 var pressure = Object.values(data)[4][1].pressure;
-//                var icon = Object.values(data)[4][0].weather[1].icon;
+                var icon2 = Object.values(data)[4][1].weather[0].icon;
 //                var wind = Object.values(data)[4][1].weather;
 
 
                 $('div#tempHL2').append("<h3>" + kelvFar(temp_H) + "°" + "/" + kelvFar(temp_L) + "°" + "</h3>");
                 $('#w_read2').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
-
+                $('#icon2').append("<img src=http://openweathermap.org/img/w/" + icon2 + ".png>");
 
                 /* ============== Day 3 ================== */
 
@@ -240,13 +267,13 @@
                 var clouds = Object.values(data)[4][2].clouds;
                 var humidity = Object.values(data)[4][2].humidity;
                 var pressure = Object.values(data)[4][2].pressure;
-//                var icon = Object.values(data)[4][0].weather[2].icon;
+                var icon3 = Object.values(data)[4][2].weather[0].icon;
 //                var wind = Object.values(data)[4][2].weather;
 
 
                 $('div#tempHL3').append("<h3>" + kelvFar(temp_H) + "°" + "/" + kelvFar(temp_L) + "°" + "</h3>");
                 $('#w_read3').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
-
+                $('#icon3').append("<img src=http://openweathermap.org/img/w/" + icon3 + ".png>");
 
 //                console.log(icon);
                 console.log(Object.values(data)[4][0].weather[0].icon);
