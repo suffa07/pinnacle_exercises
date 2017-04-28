@@ -33,6 +33,7 @@
             z-index: -2;
             position: relative;
             text-align: center;
+            font-family: 'Roboto', sans-serif;
 
         }
 
@@ -183,6 +184,37 @@
             position: absolute;
         }
 
+        #lat, #long, #zoom {
+            margin-left: 5px;
+
+        }
+
+        div#controls {
+            width: 1000px;
+            height: 40px;
+            margin-top: 5px;
+            position: absolute;
+            margin-left: 470px;
+        }
+
+        label {
+            /*margin-left: 5px;*/
+        }
+
+        #map-canvas {
+            /*margin: 0 auto;*/
+        }
+
+        button {
+            font-size: 7px;
+            color: white;
+
+        }
+
+
+
+
+
     </style>
 </head>
     <body>
@@ -208,7 +240,20 @@
 
         </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <div id="controls">
+            <label for="lat">Latitude</label>
+            <input type="text" id="lat" value="">
+
+            <label for="long">Longitude</label>
+            <input type="text" id="long" value="">
+
+            <label for="sub">submit</label>
+            <button id="sub">submit</button>
+
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -217,11 +262,18 @@
 
 
             var url = "http://api.openweathermap.org/data/2.5/forecast/daily";
+            var lon = -98.4937;
+            var lat = 29.4241;
 
             $.get(url, {
                 APPID: "7f8e3aa0aad113510e0c1eaafd1c17b8",
-                q: "San Antonio, TX",
-                cnt: 3
+//                q: "San Antonio, TX",
+                lon: lon,
+                lat: lat,
+//                zip: 78240,
+                cnt: 3,
+                units: "imperial"
+
             }).done(function (data) {
                 /*for (var i = 0; i < data.length; i++) {
                  $('div#inner').append("<h2>" + Object.values(data)[0].name + "</h2>");
@@ -230,59 +282,67 @@
 
                 /* ============== Day 1 ================== */
 
-                var ciTy = Object.values(data)[0].name;
-                var temp_H = Object.values(data)[4][0].temp.max;
-                var temp_L = Object.values(data)[4][0].temp.min;
-                var clouds = Object.values(data)[4][0].clouds;
-                var humidity = Object.values(data)[4][0].humidity;
-                var pressure = Object.values(data)[4][0].pressure;
-                var icon = Object.values(data)[4][0].weather[0].icon;
-                var wind = Object.values(data)[4][0].weather;
+                var ciTy = data.city.name;
+                var temp_H = data.list[0].temp.max;
+                var temp_L = data.list[0].temp.min;
+                var clouds = data.list[0].clouds;
+                var humidity = data.list[0].humidity;
+                var pressure = data.list[0].pressure;
+                var icon = data.list[0].weather[0].icon;
+                var wind = data.list[0].speed;
 
 
                 $('span#city').append("<h3>" + ciTy + "</h3>");
-                $('div#tempHL').append("<h3>" + kelvFar(temp_H) + "°" + "/" + kelvFar(temp_L) + "°" + "</h3>");
-                $('#w_read').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
+                $('div#tempHL').append("<h3>" + temp_H.toFixed(0) + "°" + "/" + temp_L.toFixed(0) + "°" + "</h3>");
+                $('#w_read').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind: " + wind + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
                 $('#icon').append("<img src=http://openweathermap.org/img/w/" + icon + ".png>");
 
                 /* ============== Day 2 ================== */
 
-                var temp_H = Object.values(data)[4][1].temp.max;
-                var temp_L = Object.values(data)[4][1].temp.min;
-                var clouds = Object.values(data)[4][1].clouds;
-                var humidity = Object.values(data)[4][1].humidity;
-                var pressure = Object.values(data)[4][1].pressure;
-                var icon2 = Object.values(data)[4][1].weather[0].icon;
-//                var wind = Object.values(data)[4][1].weather;
+                var temp_H = data.list[1].temp.max;
+                var temp_L = data.list[1].temp.min;
+                var clouds = data.list[1].clouds;
+                var humidity = data.list[1].humidity;
+                var pressure = data.list[1].pressure;
+                var icon2 = data.list[1].weather[0].icon;
+                var wind2 = data.list[1].speed;
 
 
-                $('div#tempHL2').append("<h3>" + kelvFar(temp_H) + "°" + "/" + kelvFar(temp_L) + "°" + "</h3>");
-                $('#w_read2').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
+                $('div#tempHL2').append("<h3>" + temp_H.toFixed(0) + "°" + "/" + temp_L.toFixed(0) + "°" + "</h3>");
+                $('#w_read2').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind: " + wind2 + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
                 $('#icon2').append("<img src=http://openweathermap.org/img/w/" + icon2 + ".png>");
 
                 /* ============== Day 3 ================== */
 
-                var temp_H = Object.values(data)[4][2].temp.max;
-                var temp_L = Object.values(data)[4][2].temp.min;
-                var clouds = Object.values(data)[4][2].clouds;
-                var humidity = Object.values(data)[4][2].humidity;
-                var pressure = Object.values(data)[4][2].pressure;
-                var icon3 = Object.values(data)[4][2].weather[0].icon;
-//                var wind = Object.values(data)[4][2].weather;
+                var temp_H = data.list[2].temp.max;
+                var temp_L = data.list[2].temp.min;
+                var clouds = data.list[2].clouds;
+                var humidity = data.list[2].humidity;
+                var pressure = data.list[2].pressure;
+                var icon3 = data.list[2].weather[0].icon;
+                var wind3 = data.list[2].speed;
 
 
-                $('div#tempHL3').append("<h3>" + kelvFar(temp_H) + "°" + "/" + kelvFar(temp_L) + "°" + "</h3>");
-                $('#w_read3').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind:" + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
+                $('div#tempHL3').append("<h3>" + temp_H.toFixed(0) + "°" + "/" + temp_L.toFixed(0) + "°" + "</h3>");
+                $('#w_read3').append("<li><strong>" + "Clouds: " + "</strong>" + clouds + "</li>" + "<li><strong>" + "Humidity: " + "</strong>" + humidity + "</li>" + "<li> <strong>" + "Wind: " + wind3 + "</strong>" + "</li>" + "<li><strong>" + "Pressure: " + "</strong>" + pressure + "</li>");
                 $('#icon3').append("<img src=http://openweathermap.org/img/w/" + icon3 + ".png>");
 
-//                console.log(icon);
-                console.log(Object.values(data)[4][0].weather[0].icon);
+//
+//                console.log(Object.values(data)[4]);
+                console.log(data);
+
+                /*=========== button controls =============*/
+
+
+                $('#sub').click(function () {
+                    $('#lat').val();
+                    $('#long').val();
+                    console.log($('#lat').val());
+
+                });
+
             });
 
-            function kelvFar(k) {
-                var fa = (k - 273.15) * (9 / 5) + 32;
-                return fa.toFixed(0);
-            }
 
         });
     </script>
